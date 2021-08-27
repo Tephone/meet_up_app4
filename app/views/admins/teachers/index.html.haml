@@ -1,0 +1,6 @@
+%h2 講師一覧画面
+- @teachers.each do |teacher|
+  %p
+    = teacher.email
+    = link_to '削除', admins_teacher_path(teacher), method: :delete
+= link_to '講師作成', new_admins_teacher_path

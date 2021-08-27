@@ -1,0 +1,15 @@
+%h2 講師作成画面
+= form_with(model: @teacher, url: admins_teachers_path) do |f|
+  .field
+    = f.label :email, autofocus: true
+    %br
+    = f.email_field :email
+  .field
+    = f.label :password
+    %br
+    = f.password_field :password
+  .field
+    = f.label :password_confirmation
+    %br
+    = f.password_field :password_confirmation
+  %p= f.submit
