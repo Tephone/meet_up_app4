@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title MeetUpApp4
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = link_to 'TOP', top_path
+    = link_to 'ログイン(管理者)', new_admin_session_path
+    = link_to 'ログイン(講師)', new_teacher_session_path
+    = link_to 'ログイン(生徒)', new_student_session_path
+
+    = yield
