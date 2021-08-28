@@ -1,0 +1,5 @@
+%h2 チケット購入画面
+- tickets_option = Ticket.where(fee: [2200, 5500, 8250]).map { |ticket| ["#{ticket.fee}円 レッスン可能数: #{ticket.lesson_count}", ticket.id] }
+= form_with(model: @purchase_ticket, url: students_purchase_tickets_path) do |f|
+  = f.select :ticket_id, tickets_option, include_blank: '-選択してください-'
+  = f.submit '購入する'

@@ -1,4 +1,5 @@
 %h2 マイページ
 %p= @student.name
 %p= @student.email
-= link_to '編集', edit_student_registration_path
+%p= link_to '編集', edit_student_registration_path
+%p= link_to 'チケット購入', new_students_purchase_ticket_path

@@ -3,5 +3,5 @@
 %p= @teacher.email
 %p= ja(@teacher.language.name)
 %p= @teacher.profile
-%p= @teacher.image
+%p= image_tag @teacher.image.url if @teacher.image.present?
 = link_to '編集', edit_teacher_registration_path

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     resources :teachers, only: %i[index new create destroy]
   end
   resource :admin, only: [:show]
+  namespace :students do
+    resources :purchase_tickets, only: %i[new create]
+  end
   resource :student, only: [:show]
   namespace :teachers do
     resources :lessons
