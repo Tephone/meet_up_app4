@@ -23,6 +23,11 @@
     - if student_signed_in?
       = link_to 'マイページ(生徒)', student_path(current_student)
       = link_to 'ログアウト(生徒)', destroy_student_session_path, method: :delete
+
+    - if teacher_signed_in?
+      = link_to 'マイページ(講師)', teacher_path(current_teacher)
+      = link_to 'ログアウト(講師)', destroy_teacher_session_path, method: :delete
+
     %p= notice
     %p= alert
     = yield

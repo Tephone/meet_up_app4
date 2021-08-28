@@ -1,9 +1,17 @@
 %h2 講師作成画面
 = form_with(model: @teacher, url: admins_teachers_path) do |f|
   .field
-    = f.label :email, autofocus: true
+    = f.label :name, autofocus: true
     %br
-    = f.email_field :email
+    = f.text_field :name
+  .field
+    = f.label :email
+    %br
+    = f.email_field :email  
+  .field
+    = f.label :language_id
+    %br
+    = f.select :language_id, languages_option
   .field
     = f.label :password
     %br

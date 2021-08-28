@@ -1,6 +1,6 @@
 class Admins::TeachersController < ApplicationController
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.all.page(params[:page])
   end
 
   def new
@@ -25,6 +25,6 @@ class Admins::TeachersController < ApplicationController
   private
 
   def teacher_params
-    params.require(:teacher).permit %i[email password password_confirmation]
+    params.require(:teacher).permit %i[name email language_id profile image password password_confirmation]
   end
 end

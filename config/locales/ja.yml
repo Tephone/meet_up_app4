@@ -205,3 +205,10 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  language:
+    thai: タイ語
+    vietnamese: ベトナム語
+    indonesian: インドネシア語
+    malay: マレーシア語
+    lao: ラオス語
+    nepali: ネパール語
