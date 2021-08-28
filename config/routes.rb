@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   end
   resource :admin, only: [:show]
   resource :student, only: [:show]
+  namespace :teachers do
+    resources :lessons
+    resources :past_lessons, only: %i[index show]
+  end
   resource :teacher, only: [:show]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
