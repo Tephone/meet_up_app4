@@ -1,3 +1,6 @@
 %h2 受講済レッスン履歴
 - @lessons.each do |lesson|
-  %p= l lesson.started_at
+  %p
+    = l lesson.started_at
+    - if lesson.review.present?
+      = link_to 'レビューを確認する', students_teacher_review_path(review: lesson.review)

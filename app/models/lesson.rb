@@ -1,6 +1,7 @@
 class Lesson < ApplicationRecord
   belongs_to :teacher
   has_one :lesson_reservation, dependent: :destroy
+  has_one :review, dependent: :destroy
   validates :started_at, presence: true
   validate :started_at_should_not_be_past
 

@@ -1,13 +1,15 @@
 %h2 レッスン詳細ページ
-- student = @lesson.lesson_reservation.student
 %p 
   開始時間:
   = l @lesson.started_at
 %p 講師: #{@lesson.teacher.name}
 %p 
-  生徒: 
-  = link_to "#{student.name}", teachers_student_past_lessons_path(student: student)
+  言語:
+  = ja(@lesson.teacher.language.name)
 - if @lesson.content.present?
   %p --講義内容--
   %p= @lesson.content
 %p= @lesson.zoom_url
+- if @lesson.review.present?
+  %p --レビュー内容--
+  %p= @lesson.review.content

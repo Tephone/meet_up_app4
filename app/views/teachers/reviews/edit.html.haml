@@ -1,0 +1,5 @@
+%h2 レビュー編集画面
+= form_with(model: @review, url: teachers_review_path, method: :put) do |f|
+  %p= f.hidden_field :lesson_id
+  %p= f.text_area :content
+  %p= f.submit

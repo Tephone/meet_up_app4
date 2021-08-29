@@ -3,3 +3,7 @@
   %p
     = l lesson.started_at
     = link_to '詳細', teachers_past_lesson_path(lesson)
+    - if lesson.review.present?
+      = link_to 'レビューを確認する', teachers_review_path(lesson.review)
+    - else
+      = link_to 'レビューを書く', new_teachers_review_path(lesson: lesson)
