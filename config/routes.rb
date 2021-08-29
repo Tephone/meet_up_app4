@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'teachers/show'
   devise_for :admins, controllers: {sessions: 'admins/sessions'}
   devise_for :students, controllers: {sessions: 'students/sessions', registrations: 'students/registrations'}
   devise_for :teachers, controllers: {sessions: 'teachers/sessions', registrations: 'teachers/registrations'}
@@ -15,6 +14,10 @@ Rails.application.routes.draw do
   resource :admin, only: [:show]
   namespace :students do
     resources :purchase_tickets, only: %i[new create]
+    resources :lesson_reservations, only: %i[create destroy]
+    resources :lessons, only: %i[index]
+    resources :reserved_lessons, only: %i[index show]
+    resources :past_lessons, only: %i[index]
   end
   resource :student, only: [:show]
   namespace :teachers do

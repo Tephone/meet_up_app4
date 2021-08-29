@@ -1,0 +1,7 @@
+%h2 レッスン一覧
+- @lessons.each do |lesson|
+  %p= l lesson.started_at
+  %p
+    講師: #{lesson.teacher.name} / 言語:
+    = ja(lesson.teacher.language.name)
+  = render 'students/lesson_reservations/reservation_form', lesson: lesson

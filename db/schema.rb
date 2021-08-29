@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_154804) do
+ActiveRecord::Schema.define(version: 2021_08_29_053700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2021_08_28_154804) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lesson_reservations", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "lesson_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_id"], name: "index_lesson_reservations_on_lesson_id"
+    t.index ["student_id", "lesson_id"], name: "index_lesson_reservations_on_student_id_and_lesson_id", unique: true
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -99,6 +108,8 @@ ActiveRecord::Schema.define(version: 2021_08_28_154804) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "lesson_reservations", "lessons"
+  add_foreign_key "lesson_reservations", "students"
   add_foreign_key "lessons", "teachers"
   add_foreign_key "monthly_plans", "tickets"
   add_foreign_key "purchase_tickets", "students"
