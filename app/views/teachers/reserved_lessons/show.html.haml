@@ -1,0 +1,10 @@
+%h2 レッスン詳細ページ
+%p 
+  開始時間:
+  = l @lesson.started_at
+%p 講師: #{@lesson.teacher.name}
+%p 生徒: #{@lesson.lesson_reservation.student.name}
+- if @lesson.content.present?
+  %p --講義内容--
+  %p= @lesson.content
+%p= @lesson.zoom_url

@@ -1,0 +1,7 @@
+%h2 レッスン作成画面
+%p 開始時刻を指定してください
+= form_with(model: @lesson, url: teachers_lesson_path) do |f|
+  %p= f.datetime_field :started_at 
+  %p --講義内容--
+  %p= f.text_area :content
+  %p= f.submit

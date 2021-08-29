@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title MeetUpApp4
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = link_to 'TOP', top_path
+
+    - if !student_signed_in? && !teacher_signed_in? && !admin_signed_in?
+      = link_to 'ログイン(管理者)', new_admin_session_path
+      = link_to 'ログイン(講師)', new_teacher_session_path
+      = link_to 'ログイン(生徒)', new_student_session_path
+      
+    - if admin_signed_in?
+      = link_to 'マイページ(管理者)', admin_path(current_admin)
+      = link_to 'ログアウト(管理者)', destroy_admin_session_path, method: :delete
+
+    - if student_signed_in?
+      = link_to 'レッスン一覧(生徒)', students_lessons_path
+      = link_to 'マイレッスン(生徒)', students_reserved_lessons_path
+      = link_to 'マイページ(生徒)', student_path(current_student)
+      = link_to 'ログアウト(生徒)', destroy_student_session_path, method: :delete
+
+    - if teacher_signed_in?
+      = link_to 'レッスン一覧(講師)', teachers_lessons_path
+      = link_to 'マイページ(講師)', teacher_path(current_teacher)
+      = link_to 'ログアウト(講師)', destroy_teacher_session_path, method: :delete
+
+    %p= notice
+    %p= alert
+    = yield
