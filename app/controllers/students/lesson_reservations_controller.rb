@@ -1,4 +1,4 @@
-class Students::LessonReservationsController < ApplicationController
+class Students::LessonReservationsController < Students::ApplicationController
   def create
     lesson_reservation = current_student.lesson_reservations.new(lesson_reservation_params)
     if current_student.remaining_lesson_count <= 0

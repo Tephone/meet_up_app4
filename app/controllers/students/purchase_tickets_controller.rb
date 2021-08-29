@@ -1,4 +1,4 @@
-class Students::PurchaseTicketsController < ApplicationController
+class Students::PurchaseTicketsController < Students::ApplicationController
   def new
     @purchase_ticket = current_student.purchase_tickets.new
   end

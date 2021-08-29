@@ -6,6 +6,7 @@
     = link_to '削除', teachers_lesson_path(lesson), method: :delete
 
 %p= link_to 'レッスン作成', new_teachers_lesson_path
+%p= link_to '予約受付済みレッスン', teachers_reserved_lessons_path
 %p= link_to 'レッスン履歴', teachers_past_lessons_path
 
 = paginate @lessons

@@ -1,4 +1,4 @@
-class Students::LessonsController < ApplicationController
+class Students::LessonsController < Students::ApplicationController
   def index
     @lessons = Lesson.all.not_reserved.future.asc.page(params[:page])
     if params[:teacher_name].present?

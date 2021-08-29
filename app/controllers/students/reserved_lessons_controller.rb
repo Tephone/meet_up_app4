@@ -1,4 +1,4 @@
-class Students::ReservedLessonsController < ApplicationController
+class Students::ReservedLessonsController < Students::ApplicationController
   def index
     @lessons = current_student.lessons.future.asc.page(params[:id])
   end

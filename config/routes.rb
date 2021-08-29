@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :teachers, only: %i[index new create destroy]
   end
-  resource :admin, only: [:show]
   namespace :students do
     resources :purchase_tickets, only: %i[new create]
     resources :lesson_reservations, only: %i[create destroy]
@@ -23,10 +22,12 @@ Rails.application.routes.draw do
     resources :reserved_lessons, only: %i[index show]
     resources :past_lessons, only: %i[index]
   end
-  resource :student, only: [:show]
   namespace :teachers do
     resources :lessons
+    resources :reserved_lessons, only: %i[index show]
     resources :past_lessons, only: %i[index show]
   end
+  resource :admin, only: [:show]
+  resource :student, only: [:show]
   resource :teacher, only: [:show]
 end

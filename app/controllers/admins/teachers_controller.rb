@@ -1,4 +1,4 @@
-class Admins::TeachersController < ApplicationController
+class Admins::TeachersController < Admins::ApplicationController
   def index
     @teachers = Teacher.all.page(params[:page])
   end

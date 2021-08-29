@@ -1,4 +1,4 @@
-class Teachers::LessonsController < ApplicationController
+class Teachers::LessonsController < Teachers::ApplicationController
   before_action :set_lesson, only: %i[show edit update destroy]
 
   def index

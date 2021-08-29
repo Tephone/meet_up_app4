@@ -5,3 +5,4 @@
     = link_to '詳細', students_reserved_lesson_path(lesson)
   %p= render 'students/lesson_reservations/reservation_form', lesson: lesson
 = link_to 'レッスン履歴', students_past_lessons_path
+= paginate @lessons

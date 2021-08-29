@@ -1,0 +1,6 @@
+%h2 予約済みレッスン一覧
+- @lessons.each do |lesson|
+  %p
+    = l lesson.started_at
+    = link_to '詳細', teachers_reserved_lesson_path(lesson)
+= paginate @lessons
