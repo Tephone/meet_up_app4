@@ -1,0 +1,4 @@
+%h2 レビュー内容
+%p= @review.content
+%p= link_to '編集する', edit_teachers_review_path
+%p= link_to '削除する', teachers_review_path, method: :delete

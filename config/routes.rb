@@ -21,11 +21,13 @@ Rails.application.routes.draw do
     resources :lessons, only: %i[index]
     resources :reserved_lessons, only: %i[index show]
     resources :past_lessons, only: %i[index]
+    resource :teacher_review, only: %i[show]
   end
   namespace :teachers do
     resources :lessons
     resources :reserved_lessons, only: %i[index show]
     resources :past_lessons, only: %i[index show]
+    resources :reviews, only: %i[new create show edit update destroy]
   end
   resource :admin, only: [:show]
   resource :student, only: [:show]
