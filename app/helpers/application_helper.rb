@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def languages_option
-    Language.all.map { |language| [ja(language.name), language.id]}
+    Language.all.map { |language| [ja(language.name), language.id] }
   end
 end

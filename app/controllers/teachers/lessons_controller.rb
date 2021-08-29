@@ -42,7 +42,7 @@ class Teachers::LessonsController < Teachers::ApplicationController
   def lesson_params
     params.require(:lesson).permit %i[started_at content zoom_url teacher_id]
   end
-  
+
   def set_lesson
     @lesson = current_teacher.lessons.find(params[:id])
   end

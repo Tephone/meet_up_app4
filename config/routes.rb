@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/inbox' if Rails.env.development?
-  devise_for :admins, controllers: {sessions: 'admins/sessions'}
-  devise_for :students, controllers: {sessions: 'students/sessions', registrations: 'students/registrations'}
-  devise_for :teachers, controllers: {sessions: 'teachers/sessions', registrations: 'teachers/registrations'}
+  devise_for :admins, controllers: { sessions: 'admins/sessions' }
+  devise_for :students, controllers: { sessions: 'students/sessions', registrations: 'students/registrations' }
+  devise_for :teachers, controllers: { sessions: 'teachers/sessions', registrations: 'teachers/registrations' }
   devise_scope :admin do
     post 'admins/sign_in_as_a_teacher', to: 'admins/sessions#sign_in_as_a_teacher', as: :admins_sign_in_as_a_teacher
   end
