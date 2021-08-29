@@ -1,6 +1,6 @@
 class Teachers::PastLessonsController < ApplicationController
   def index
-    @lessons = current_teacher.lessons.past.order('started_at DESC').page(params[:page])
+    @lessons = current_teacher.lessons.past.desc.page(params[:page])
   end
 
   def show

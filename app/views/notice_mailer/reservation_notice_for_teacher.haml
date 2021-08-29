@@ -1,0 +1,8 @@
+%h2 レッスン予約受付メール
+%p 開始時刻: #{ l @lesson_reservation.lesson.started_at}
+%p 講師: #{@lesson_reservation.lesson.teacher.name}
+%p 生徒: #{@lesson_reservation.student.name}
+%p
+  言語:
+  = ja(@lesson_reservation.lesson.teacher.language.name)
+%p zoom_url: #{@lesson_reservation.lesson.zoom_url}
