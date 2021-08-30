@@ -1,0 +1,6 @@
+%h2 言語一覧画面
+- @languages.each do |language|
+  %p
+    = ja(language.name)
+    = link_to '予約率表', admins_language_reservation_rate_path(language: language)
+= paginate @languages

@@ -1,0 +1,15 @@
+%h2= ja(@language.name)
+%p #{today.month}月の予約率: #{reservation_rate(Lesson.for_language(@language).for_month(today))}%
+%p ※測定不能の場合「--」と表示
+%table
+  - days_of_week.each do |day|
+    %th= day
+  - weeks_in_this_month.each do |week|
+    %tr
+      - week.each do |date|
+        - if date == today.beginning_of_month
+          - date.wday.times do
+            %td
+        %td
+          %p= date.day
+          %p #{reservation_rate(Lesson.for_language(@language).for_day(date))}%

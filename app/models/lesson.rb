@@ -14,6 +14,10 @@ class Lesson < ApplicationRecord
   scope :search_by_date, ->(date) { where(started_at: date.in_time_zone.all_day) }
   scope :asc, -> { order('started_at ASC') }
   scope :desc, -> { order('started_at DESC') }
+  scope :for_month, ->(date) { where(started_at: date.in_time_zone.all_month) }
+  scope :for_day, ->(date) { where(started_at: date.in_time_zone.all_day) }
+  scope :for_language, ->(language) { where(teacher_id: language.teachers) }
+  scope :for_time, ->(datetime) { where('? <= started_at AND started_at <= ?', datetime.in_time_zone.beginning_of_hour, datetime.in_time_zone.end_of_hour) }
 
   def started_at_should_not_be_past
     errors.add(:started_at, 'は現在以降の日時を指定してください') if self.started_at.past?

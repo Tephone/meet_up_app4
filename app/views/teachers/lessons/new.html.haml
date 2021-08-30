@@ -7,3 +7,5 @@
 = form_with(model: @lesson, url: teachers_lessons_path) do |f|
   %p= f.datetime_field :started_at, min: Date.current
   %p= f.submit
+%p= link_to '複数レッスンを同時作成する' ,new_teachers_multiple_lesson_path
+%p= link_to '時間指定でレッスンを一括作成する' ,new_teachers_time_range_lesson_path
