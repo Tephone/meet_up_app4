@@ -12,11 +12,11 @@ module ApplicationHelper
   end
 
   def dates_in_this_month
-    (today.beginning_of_month..today.end_of_month).to_a
+    today.all_month.to_a
   end
 
   def weeks_in_this_month
-    dates_in_this_month.slice_before {|date| date.wday.zero?}.to_a
+    dates_in_this_month.slice_before { |date| date.wday.zero? }.to_a
   end
 
   def days_of_week

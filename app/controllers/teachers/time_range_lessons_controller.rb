@@ -1,6 +1,6 @@
 class Teachers::TimeRangeLessonsController < Teachers::ApplicationController
   around_action :wrap_in_transaction, only: [:create]
-  
+
   def new
   end
 
@@ -21,9 +21,7 @@ class Teachers::TimeRangeLessonsController < Teachers::ApplicationController
 
   private
 
-  def wrap_in_transaction
-    ActiveRecord::Base.transaction do
-      yield
-    end    
+  def wrap_in_transaction(&block)
+    ActiveRecord::Base.transaction(&block)
   end
 end

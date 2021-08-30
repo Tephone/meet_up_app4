@@ -5,7 +5,7 @@ class Teachers::MultipleLessonsController < Teachers::ApplicationController
   end
 
   def create
-    started_at_ary = params[:time_range][:started_at].without("")
+    started_at_ary = params[:time_range][:started_at].without('')
     if started_at_ary.present?
       started_at_ary.each do |started_at|
         current_teacher.lessons.create!(started_at: started_at)
@@ -18,9 +18,7 @@ class Teachers::MultipleLessonsController < Teachers::ApplicationController
 
   private
 
-  def wrap_in_transaction
-    ActiveRecord::Base.transaction do
-      yield
-    end
+  def wrap_in_transaction(&block)
+    ActiveRecord::Base.transaction(&block)
   end
 end
