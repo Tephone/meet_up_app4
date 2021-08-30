@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resource :top, only: [:show]
   namespace :admins do
     resources :teachers, only: %i[index new create destroy]
+    resources :languages, only: [:index]
+    resource :time_reservation_rate, only: [:show]
+    resource :teacher_reservation_rate, only: [:show]
+    resource :language_reservation_rate, only: [:show]
   end
   namespace :students do
     resources :purchase_tickets, only: %i[new create]
