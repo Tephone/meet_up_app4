@@ -23,6 +23,10 @@ module ApplicationHelper
     %w[日曜日 月曜日 火曜日 水曜日 木曜日 金曜日 土曜日].freeze
   end
 
+  def time_range
+    (7..22).to_a
+  end
+
   def reservation_rate(lessons)
     teacher_lessons = lessons
     reserved_teacher_lessons = teacher_lessons.reserved
