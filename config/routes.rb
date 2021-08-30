@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     resources :reserved_lessons, only: %i[index show]
     resources :past_lessons, only: %i[index show]
     resources :student_past_lessons, only: %i[index show]
+    resources :multiple_lessons, only: %i[new create]
+    resources :time_range_lessons, only: %i[new create]
     resources :reviews, only: %i[new create show edit update destroy]
   end
   resource :admin, only: [:show]

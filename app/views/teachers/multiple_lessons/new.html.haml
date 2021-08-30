@@ -1,0 +1,5 @@
+%h2 レッスン複数作成画面
+= form_with(url: teachers_multiple_lessons_path) do |f|
+  - 3.times do
+    = f.datetime_field 'time_range[started_at][]', min: Date.current
+  = f.submit

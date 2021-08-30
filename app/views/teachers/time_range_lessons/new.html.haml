@@ -1,0 +1,11 @@
+%h2 レッスン時間指定作成画面
+%p 作成日時を選択してください
+- time_range = (7..22).to_a
+= form_with(url: teachers_time_range_lessons_path) do |f|
+  %p
+    = f.date_field :date, min: Date.current
+    = f.select :start_time, time_range
+    時〜
+    = f.select :end_time, time_range
+    時
+    = f.submit
