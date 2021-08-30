@@ -1,6 +1,6 @@
 class Students::ChoiceMonthlyPlansController < Students::ApplicationController
   before_action :set_choice_monthly_plan, only: %i[show edit update destroy]
-  
+
   def new
     @choice_monthly_plan = current_student.build_choice_monthly_plan
   end
