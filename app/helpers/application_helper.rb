@@ -7,6 +7,14 @@ module ApplicationHelper
     Language.all.map { |language| [ja(language.name), language.id] }
   end
 
+  def tickets_option
+    Ticket.where(fee: [2200, 5500, 8250]).map { |ticket| ["#{ticket.fee}円 レッスン可能数: #{ticket.lesson_count}", ticket.id] }
+  end
+
+  def monthly_plans_option
+    MonthlyPlan.pluck(:name, :id)
+  end
+
   def today
     Date.current
   end

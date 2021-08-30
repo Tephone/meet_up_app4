@@ -1,0 +1,5 @@
+%h2 定期プラン変更画面
+%p ※加入月の翌月からサービスをご利用いただけます
+= form_with(model: @choice_monthly_plan, url: students_choice_monthly_plan_path, method: :put) do |f|
+  = f.select :monthly_plan_id, monthly_plans_option
+  = f.submit
