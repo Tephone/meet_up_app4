@@ -1,6 +1,6 @@
 class Students::ReservedLessonsController < Students::ApplicationController
   def index
-    @lessons = current_student.lessons.future.asc.page(params[:id])
+    @lessons = current_student.lessons.future.started_at_asc.page(params[:id])
   end
 
   def show

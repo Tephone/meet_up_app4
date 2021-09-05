@@ -4,5 +4,5 @@
 %p 生徒: #{@lesson_reservation.student.name}
 %p
   言語:
-  = ja(@lesson_reservation.lesson.teacher.language.name)
+  = i18n_language_name(@lesson_reservation.lesson.teacher.language.name)
 %p zoom_url: #{@lesson_reservation.lesson.zoom_url}

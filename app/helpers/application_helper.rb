@@ -1,18 +1,18 @@
 module ApplicationHelper
-  def ja(language_name)
+  def i18n_language_name(language_name)
     t("language.#{language_name}")
   end
 
   def languages_option
-    Language.all.map { |language| [ja(language.name), language.id] }
+    Language.all.map { |language| [i18n_language_name(language.name), language.id] }
   end
 
   def tickets_option
-    Ticket.where(fee: [2200, 5500, 8250]).map { |ticket| ["#{ticket.fee}円 レッスン可能数: #{ticket.lesson_count}", ticket.id] }
+    Ticket.where(fee: [2200, 5500, 8250]).map { |ticket| ["#{ticket.fee}円 レッスン可能数: #{ticket.lesson_count}", ticket.id] }.sort_by { |lesson_count, _| lesson_count }
   end
 
   def monthly_plans_option
-    MonthlyPlan.pluck(:name, :id)
+    MonthlyPlan.pluck(:name, :id).sort_by{ |_, id| id }
   end
 
   def today

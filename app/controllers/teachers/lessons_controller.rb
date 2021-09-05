@@ -2,7 +2,7 @@ class Teachers::LessonsController < Teachers::ApplicationController
   before_action :set_lesson, only: %i[show edit update destroy]
 
   def index
-    @lessons = current_teacher.lessons.future.desc.page(params[:page])
+    @lessons = current_teacher.lessons.future.started_at_desc.page(params[:page])
   end
 
   def new

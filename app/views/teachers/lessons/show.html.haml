@@ -5,7 +5,7 @@
 %p 講師: #{@lesson.teacher.name}
 %p 
   言語:
-  = ja(@lesson.teacher.language.name)
+  = i18n_language_name(@lesson.teacher.language.name)
 - if @lesson.content.present?
   %p --講義内容--
   %p= @lesson.content

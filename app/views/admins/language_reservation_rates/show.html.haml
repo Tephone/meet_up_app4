@@ -1,4 +1,4 @@
-%h2= ja(@language.name)
+%h2= i18n_language_name(@language.name)
 %p #{today.month}月の予約率: #{reservation_rate(Lesson.for_language(@language).for_month(today))}%
 %p ※測定不能の場合「--」と表示
 %table
