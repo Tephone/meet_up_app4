@@ -1,0 +1,5 @@
+%h2 定期プラン内容
+%p= @choice_monthly_plan.monthly_plan.name
+%p ※毎月#{@choice_monthly_plan.monthly_plan.ticket.lesson_count}回レッスンを受講することができます
+%p= link_to 'プラン変更', edit_students_choice_monthly_plan_path
+%p= link_to 'プランを休止する', students_choice_monthly_plan_path, method: :delete

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :reserved_lessons, only: %i[index show]
     resources :past_lessons, only: %i[index]
     resource :teacher_review, only: %i[show]
+    resources :choice_monthly_plans, only: %i[new create show edit update destroy]
   end
   namespace :teachers do
     resources :lessons

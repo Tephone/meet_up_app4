@@ -4,3 +4,7 @@
 %p 予約可能数: #{@student.remaining_lesson_count}
 %p= link_to '編集', edit_student_registration_path
 %p= link_to 'チケット購入', new_students_purchase_ticket_path
+- if @student.choice_monthly_plan.present?
+  %p= link_to '加入済みプランを確認する', students_choice_monthly_plan_path(@student.choice_monthly_plan)
+-else
+  %p= link_to '定期プラン加入', new_students_choice_monthly_plan_path
