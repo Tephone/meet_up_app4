@@ -1,5 +1,5 @@
 %h2= i18n_language_name(@language.name)
-%p #{today.month}月の予約率: #{reservation_rate(Lesson.for_language(@language).for_month(today))}%
+%p #{Date.current.month}月の予約率: #{reservation_rate(Lesson.for_language(@language).for_month(Date.current))}%
 %p ※測定不能の場合「--」と表示
 %table
   - days_of_week.each do |day|
@@ -7,7 +7,7 @@
   - weeks_in_this_month.each do |week|
     %tr
       - week.each do |date|
-        - if date == today.beginning_of_month
+        - if date == Date.current.beginning_of_month
           - date.wday.times do
             %td
         %td

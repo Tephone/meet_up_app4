@@ -15,12 +15,8 @@ module ApplicationHelper
     MonthlyPlan.pluck(:name, :id).sort_by{ |_, id| id }
   end
 
-  def today
-    Date.current
-  end
-
   def dates_in_this_month
-    today.all_month.to_a
+    Date.current.all_month.to_a
   end
 
   def weeks_in_this_month

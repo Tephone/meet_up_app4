@@ -36,7 +36,7 @@ class Students::ChoiceMonthlyPlansController < Students::ApplicationController
   private
 
   def choice_monthly_plan_params
-    params.require(:choice_monthly_plan).permit %i[student_id monthly_plan_id]
+    params.require(:choice_monthly_plan).permit %i[monthly_plan_id]
   end
 
   def set_choice_monthly_plan
