@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
   devise_for :students, controllers: { sessions: 'students/sessions', registrations: 'students/registrations' }
   devise_for :teachers, controllers: { sessions: 'teachers/sessions', registrations: 'teachers/registrations' }
-  devise_scope :admin do
-    post 'admins/sign_in_as_a_teacher', to: 'admins/sessions#sign_in_as_a_teacher', as: :admins_sign_in_as_a_teacher
-  end
   devise_scope :teacher do
     get 'teachers/edit', to: 'teachers/registrations#edit', as: :edit_teacher_registration
     put 'teachers', to: 'teachers/registrations#update', as: :teacher_registration
@@ -18,6 +15,7 @@ Rails.application.routes.draw do
     resource :time_reservation_rate, only: [:show]
     resource :teacher_reservation_rate, only: [:show]
     resource :language_reservation_rate, only: [:show]
+    resources :teacher_sessions, only: [:create]
   end
   namespace :students do
     resources :purchase_tickets, only: %i[new create]

@@ -6,4 +6,4 @@
     - if lesson.review.present?
       = link_to 'レビューを確認する', teachers_review_path(lesson.review)
     - else
-      = link_to 'レビューを書く', new_teachers_review_path(lesson: lesson)
+      = link_to 'レビューを書く', new_teachers_review_path(lesson_id: lesson)

@@ -2,7 +2,7 @@ class Teachers::ReviewsController < Teachers::ApplicationController
   before_action :set_review, only: %i[show edit update destroy]
 
   def new
-    @lesson = current_teacher.lessons.find(params[:lesson])
+    @lesson = current_teacher.lessons.find(params[:lesson_id])
     @review = current_teacher.reviews.new(lesson_id: @lesson.id)
   end
 
@@ -38,7 +38,7 @@ class Teachers::ReviewsController < Teachers::ApplicationController
   private
 
   def review_params
-    params.require(:review).permit %i[teacher_id lesson_id content]
+    params.require(:review).permit %i[lesson_id content]
   end
 
   def set_review

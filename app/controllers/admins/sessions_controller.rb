@@ -17,13 +17,7 @@ class Admins::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
-
-  def sign_in_as_a_teacher
-    teacher = Teacher.find(params[:teacher])
-    sign_in teacher
-    redirect_to teacher_path(teacher)
-  end
-
+  
   protected
 
   # If you have extra params to permit, append them to the sanitizer.

@@ -9,6 +9,6 @@
   %p= l lesson.started_at
   %p
     講師: #{lesson.teacher.name} / 言語:
-    = ja(lesson.teacher.language.name)
+    = i18n_language_name(lesson.teacher.language.name)
   = render 'students/lesson_reservations/reservation_form', lesson: lesson
 = paginate @lessons

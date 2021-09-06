@@ -3,7 +3,6 @@
 class Students::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-  around_action :wrap_in_transaction, only: [:create]
 
   # GET /resource/sign_up
   # def new
@@ -63,17 +62,5 @@ class Students::RegistrationsController < Devise::RegistrationsController
 
   def after_update_path_for(resource)
     student_path(current_student)
-  end
-
-  def create_purchase_ticket
-    ticket = Ticket.find_by(lesson_count: 1)
-    current_student.purchase_tickets.create!(ticket_id: ticket.id)
-  end
-
-  def wrap_in_transaction
-    ActiveRecord::Base.transaction do
-      yield
-      create_purchase_ticket
-    end
   end
 end

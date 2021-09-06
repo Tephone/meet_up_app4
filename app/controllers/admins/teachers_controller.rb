@@ -1,6 +1,6 @@
 class Admins::TeachersController < Admins::ApplicationController
   def index
-    @teachers = Teacher.all.page(params[:page])
+    @teachers = Teacher.order('created_at DESC').page(params[:page])
   end
 
   def new

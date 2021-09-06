@@ -1,4 +1,4 @@
-%h2 #{today.month}月の時間別予約率表
+%h2 #{Date.current.month}月の時間別予約率表
 %p ※赤色 → 予約率86%以上
 %p ※桃色 → 予約率51〜85%
 %p ※青色 → 予約率50%以下
@@ -12,7 +12,7 @@
       %td= time
       - dates_in_this_month.each do |date|
         - time_reservation_rate = reservation_rate(Lesson.for_time(date.in_time_zone + time.hours))
-        -if time_reservation_rate == '--'
+        - if time_reservation_rate == '--'
           %td= time_reservation_rate
         - elsif time_reservation_rate >= 86
           %td.high= time_reservation_rate

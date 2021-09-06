@@ -9,11 +9,11 @@ class Lesson < ApplicationRecord
   scope :past, -> { where('started_at < ?', Time.current) }
   scope :reserved, -> { where(id: LessonReservation.select(:lesson_id)) }
   scope :not_reserved, -> { where.not(id: LessonReservation.select(:lesson_id)) }
-  scope :search_by_teacher_name, ->(teacher_name) { where('teachers.name LIKE ?', "%#{teacher_name}%") }
-  scope :search_by_language_id, ->(language_id) { where('languages.id::text LIKE ?', language_id) }
+  scope :search_by_teacher_name, ->(teacher_name) { joins(:teacher).where('teachers.name LIKE ?', "%#{teacher_name}%") }
+  scope :search_by_language_id, ->(language_id) { joins(teacher: :language).where('languages.id::text = ?', language_id) }
   scope :search_by_date, ->(date) { where(started_at: date.in_time_zone.all_day) }
-  scope :asc, -> { order('started_at ASC') }
-  scope :desc, -> { order('started_at DESC') }
+  scope :started_at_asc, -> { order('started_at ASC') }
+  scope :started_at_desc, -> { order('started_at DESC') }
   scope :for_month, ->(date) { where(started_at: date.in_time_zone.all_month) }
   scope :for_day, ->(date) { where(started_at: date.in_time_zone.all_day) }
   scope :for_language, ->(language) { where(teacher_id: language.teachers) }

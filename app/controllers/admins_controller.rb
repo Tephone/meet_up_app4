@@ -1,4 +1,4 @@
-class AdminsController < ApplicationController
+class AdminsController < Admins::ApplicationController
   before_action :authenticate_admin!
 
   def show
