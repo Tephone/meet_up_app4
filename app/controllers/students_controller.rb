@@ -3,5 +3,6 @@ class StudentsController < Students::ApplicationController
 
   def show
     @student = current_student
+    @current_time = Time.current
   end
 end

@@ -4,4 +4,5 @@ class PurchaseTicket < ApplicationRecord
   validates :ticket_id, presence: true
 
   scope :valid, -> { where(deadline: Date.current..) }
+  scope :regular_ticket, -> { where(deadline: Float::INFINITY) }
 end
