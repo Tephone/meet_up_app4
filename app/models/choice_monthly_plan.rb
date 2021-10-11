@@ -2,7 +2,7 @@ class ChoiceMonthlyPlan < ApplicationRecord
   belongs_to :student
   belongs_to :monthly_plan
   validates :student_id, uniqueness: { scope: :monthly_plan_id }
-  
+
   class << self
     def ticket_subscription
       ApplicationRecord.transaction do

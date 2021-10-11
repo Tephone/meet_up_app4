@@ -3,7 +3,7 @@ namespace :monthly_task do
 
   task ticket_subscription: :environment do
     if Date.current == Date.current.beginning_of_month
-        ChoiceMonthlyPlan.ticket_subscription
+      ChoiceMonthlyPlan.ticket_subscription
     end
   end
 end

@@ -10,7 +10,7 @@ class Lesson < ApplicationRecord
   scope :reserved, -> { where(id: LessonReservation.select(:lesson_id)) }
   scope :not_reserved, -> { where.not(id: LessonReservation.select(:lesson_id)) }
   scope :search_by_teacher_name, ->(teacher_name) { joins(:teacher).where('teachers.name LIKE ?', "%#{teacher_name}%") }
-  scope :search_by_language_id, ->(language_id) { joins(teacher: :language).where('languages.id::text = ?', language_id) }
+  scope :search_by_language_id, ->(language_id) { joins(teacher: :language).where(languages: {id: language_id}) }
   scope :search_by_date, ->(date) { where(started_at: date.in_time_zone.all_day) }
   scope :started_at_asc, -> { order('started_at ASC') }
   scope :started_at_desc, -> { order('started_at DESC') }

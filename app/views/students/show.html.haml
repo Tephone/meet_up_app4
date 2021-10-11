@@ -1,7 +1,7 @@
 %h2 マイページ
 %p= @student.name
 %p= @student.email
-%p 予約可能数: #{@student.remaining_lesson_count}
+%p 予約可能数: #{@student.remaining_lesson_count(@current_time)}
 %p= link_to '編集', edit_student_registration_path
 %p= link_to 'チケット購入', new_students_purchase_ticket_path
 - if @student.choice_monthly_plan.present?
